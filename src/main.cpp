@@ -1,20 +1,43 @@
 //******************************************************************************
 // File name:   main.cpp
-// Author:      CS Faculty
-// Date:        xx/xx/xxxx (Replace xx/xx/xxxx with month/day/year)
-// Class:       CS150-xx (Replace xx with your section number)
-// Assignment:  Hello World
-// Purpose:     Display the message Hello World to the screen
-// Hours:       0.25
+// Author:      Jake Gallagher
+// Date:        09/18/2024 
+// Class:       CS200-01 
+// Assignment:  BaseConverter
+// Purpose:     
+// Hours:       
 //******************************************************************************
 
 #include <iostream>
+#include "functions.cpp"
 
 using namespace std;
 
 int main () {
+  char base;
+  string inputString;
+  const string QUIT = "q";
 
-  cout << "Hello World" << endl;
+  printTitle("a");
+  inputString = getNumber("a");
+
+  while(inputString != QUIT){
+     base = getBase(inputString);
+
+     switch(base){
+      case 'D':
+
+        break;
+
+      case 'H':
+
+        break;
+
+      case 'B':
+
+        break;
+     }
+  }
   
   return EXIT_SUCCESS;
 }
