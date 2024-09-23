@@ -4,15 +4,13 @@
 // Date:        09/18/2024 
 // Class:       CS200-01 
 // Assignment:  BaseConverter
-// Purpose:     
-// Hours:       
+// Purpose:     convert values between Hex, Binary, and decimal
+// Hours:       5 hours
 //******************************************************************************
 
 #include <iostream>
 #include <string>
-#include <cstring>
 #include <cmath>
-#include <algorithm>
 
 using namespace std;
 
@@ -26,6 +24,16 @@ string decimalToHex (const string& strNumber);
 string hexToDecimal (const string& strNumber);
 string hexToBinary (const string& strNumber);
 string binaryToHex (const string& strNumber);
+
+/*******************************************************************************
+Function:			main
+
+Description:	Driver for conversion calculator
+
+Parameters:		None
+
+Returned:			exit status
+*******************************************************************************/
 
 int main () {
   const string TITLE_STARS = "**************************************";
@@ -79,6 +87,17 @@ int main () {
   return EXIT_SUCCESS;
 }
 
+
+/*******************************************************************************
+Function:			hexCharToInt
+
+Description:	converts a hexadecimal value into an integer
+
+Parameters:		hexDigit - the hexadecimal didgit being converted into an integer
+
+Returned:			the integer value of the hexadecimal didgit
+*******************************************************************************/
+
 int hexCharToInt(char hexDigit){
   const int HEX_A = 10;
   const int HEX_B = 11;
@@ -116,6 +135,17 @@ int hexCharToInt(char hexDigit){
 
 }
 
+/*******************************************************************************
+Function:			getBase
+
+Description:	get the base of the string that is passed in by the user
+
+Parameters:		strNumber - string inputed by user
+
+Returned:			returns a character specifying what type the string is. Either 
+              hexadecimal, binary, or decimal
+*******************************************************************************/
+
 char getBase(const string& strNumber){
   const char HEX = 'H';
   const char DECIMAL = 'D';
@@ -136,6 +166,17 @@ char getBase(const string& strNumber){
   return retval;
 }
 
+/*******************************************************************************
+Function:			getNumber
+
+Description:	prompts the user and asks for them to input a value of a hex,
+              binary, or decimal value.
+
+Parameters:		prompt: the prompted passed in
+
+Returned:			returns a string of the value that was inputed
+*******************************************************************************/
+
 string getNumber (const string& prompt){
   string retval;
   cout << prompt;
@@ -144,9 +185,29 @@ string getNumber (const string& prompt){
   return retval;
 }
 
+/*******************************************************************************
+Function:			printTitle
+
+Description:	Prints the title of the conversion program
+
+Parameters:		myTitle -  the title passed in to be outputed
+
+Returned:			none
+*******************************************************************************/
+
 void printTitle (const string& myTitle){
-  cout << myTitle<< endl;
+  cout << myTitle << endl;
 }
+
+/*******************************************************************************
+Function:			binaryToDecimal
+
+Description:	Converts a binary number that is passed in into its decimal form
+
+Parameters:		strNumber - the string to be converted
+
+Returned:			returns a string of the conversion in decimal
+*******************************************************************************/
 
 string binaryToDecimal (const string& strNumber){
   const int length = strNumber.length();
@@ -163,6 +224,16 @@ string binaryToDecimal (const string& strNumber){
 
   return to_string(retval);
 }
+
+/*******************************************************************************
+Function:			decimalToBinary
+
+Description:	Converts a decimal number that is passed in into its binary form
+
+Parameters:		strNumber - the string to be converted
+
+Returned:			returns a string of the conversion in binary
+*******************************************************************************/
 
 string decimalToBinary(const string& strNumber){
   int length = 0;
@@ -190,6 +261,17 @@ string decimalToBinary(const string& strNumber){
   delete[] charArrayInital;
   return retval;
 }
+
+/*******************************************************************************
+Function:			decimalToHex
+
+Description:	Converts a decimal number that is passed in into its hexadecimal 
+              form
+
+Parameters:		strNumber - the string to be converted
+
+Returned:			returns a string of the conversion in hexadecimal
+*******************************************************************************/
 
 string decimalToHex (const string& strNumber){
   const int ASCII_TO_ZERO = 48;
@@ -225,6 +307,17 @@ string decimalToHex (const string& strNumber){
   return retval;
 }
 
+/*******************************************************************************
+Function:			hexToDecimal
+
+Description:	Converts a hexadecimal number that is passed in into its decimal
+              form
+
+Parameters:		strNumber - the string to be converted
+
+Returned:			returns a string of the conversion in decimal
+*******************************************************************************/
+
 string hexToDecimal (const string& strNumber){
   const int length = strNumber.length();
   int counter = 0;
@@ -241,6 +334,17 @@ string hexToDecimal (const string& strNumber){
   return to_string(retval);
 }
 
+/*******************************************************************************
+Function:			hexToBinary
+
+Description:	Converts a hexadecimal number that is passed in into its binary 
+              form
+
+Parameters:		strNumber - the string to be converted
+
+Returned:			returns a string of the conversion in binary
+*******************************************************************************/
+
 string hexToBinary (const string& strNumber){
   string retval;
   retval = hexToDecimal(strNumber);
@@ -248,6 +352,17 @@ string hexToBinary (const string& strNumber){
 
   return retval;
 }
+
+/*******************************************************************************
+Function:			BinaryToHex
+
+Description:	Converts a binary number that is passed in into its hexadecimal 
+              form
+
+Parameters:		strNumber - the string to be converted
+
+Returned:			returns a string of the conversion in hexadecimal
+*******************************************************************************/
 
 string binaryToHex (const string& strNumber){
   string retval;
